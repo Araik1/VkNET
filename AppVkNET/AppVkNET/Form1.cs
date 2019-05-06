@@ -1,10 +1,8 @@
-﻿using System;
+﻿using AppVkNET;
+using System;
 using System.Windows.Forms;
-
-using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model;
-
 
 namespace VkNet
 {
@@ -14,40 +12,79 @@ namespace VkNet
         private string userName;
         private string password;
 
-        VkApi api = new VkApi();
+        private VkApi api;
+        private ulong IDApp;
 
         public Form_main()
         {
             InitializeComponent();
-
+            api = new VkApi();
+            IDApp = 6972061;
         }
 
+        private bool isLogedVk(string login, string password)
+        {
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+                return false;
+
+            try
+            {
+                try
+                {
+                    api.Authorize(new ApiAuthParams
+                    {
+                        ApplicationId = IDApp,
+                        Login = login,
+                        Password = password,
+                        Settings = Settings.Messages,
+                        TwoFactorAuthorization = () =>
+                        {
+                            using (TwoFactorAuthForm authForm = new TwoFactorAuthForm())
+                            {
+                                authForm.ShowDialog();
+                                return authForm.codeAuth;
+                            }
+                        }
+                    });
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка");
+                    return false;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return false;
+            }
+
+            return true;
+        }
         private void buttonAth_Click(object sender, EventArgs e)
         {
             userName = textBoxUser.Text.ToString();
             password = textBoxPas.Text.ToString();
 
-            api.Authorize(new ApiAuthParams
+            if (isLogedVk(userName, password))
             {
-                ApplicationId = 6972061,
-                Login = userName,
-                Password = password,
-                Settings = Settings.All,
-                TwoFactorAuthorization = () =>
+                api.Messages.Send(new Model.RequestParams.MessagesSendParams
                 {
-                    Console.WriteLine("Enter Code:");
-                    return Console.ReadLine();
-                }
-            });
+                    RandomId = 12365,
+                    ChatId = 153211133,
+                    Message = "message"
+                });
+            }
 
-            Console.WriteLine(api.Token);
+            /*Console.WriteLine(api.Token);
 
             // Отправка сообщения себе
             api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams
             {
                 ChatId = api.UserId.Value,
                 Message = "message"
-            });
+            });*/
+
         }
 
         //===================Перемещение окна==============================
@@ -62,7 +99,6 @@ namespace VkNet
                 isMouseDown = true;
             }
         }
-
         private void panelMouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
@@ -72,7 +108,6 @@ namespace VkNet
                 Location = mousePos;
             }
         }
-
         private void panelMouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -80,11 +115,12 @@ namespace VkNet
                 isMouseDown = false;
             }
         }
-
         private void closeApp(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            this.Close();
         }
+
+
         //=================================================================  
     }
 }

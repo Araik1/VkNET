@@ -42,6 +42,7 @@
             this.buttonAth = new System.Windows.Forms.Button();
             this.textBoxPas = new System.Windows.Forms.TextBox();
             this.textBoxUser = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel_borderMove.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panelAth.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // panelWelcome
             // 
+            this.panelWelcome.Controls.Add(this.label6);
             this.panelWelcome.Controls.Add(this.label5);
             this.panelWelcome.Controls.Add(this.label4);
             this.panelWelcome.Controls.Add(this.buttonAth);
@@ -214,6 +216,15 @@
             this.textBoxUser.Size = new System.Drawing.Size(199, 23);
             this.textBoxUser.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(70, 268);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "label6";
+            // 
             // Form_main
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -258,6 +269,7 @@
         private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonCloseApp;
+        private System.Windows.Forms.Label label6;
     }
 }
 
