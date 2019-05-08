@@ -32,6 +32,12 @@
             this.buttonCloseApp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelProf = new System.Windows.Forms.Panel();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonMyProfil = new System.Windows.Forms.Button();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.panelAth = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +48,10 @@
             this.buttonAth = new System.Windows.Forms.Button();
             this.textBoxPas = new System.Windows.Forms.TextBox();
             this.textBoxUser = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel_borderMove.SuspendLayout();
             this.panelContent.SuspendLayout();
+            this.panelMain.SuspendLayout();
+            this.panelLeft.SuspendLayout();
             this.panelAth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelWelcome.SuspendLayout();
@@ -97,6 +104,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.panelMain);
             this.panelContent.Controls.Add(this.panelAth);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 33);
@@ -104,12 +112,80 @@
             this.panelContent.Size = new System.Drawing.Size(692, 403);
             this.panelContent.TabIndex = 1;
             // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.panelProf);
+            this.panelMain.Controls.Add(this.panelLeft);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(692, 403);
+            this.panelMain.TabIndex = 1;
+            // 
+            // panelProf
+            // 
+            this.panelProf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProf.Location = new System.Drawing.Point(191, 0);
+            this.panelProf.Name = "panelProf";
+            this.panelProf.Size = new System.Drawing.Size(501, 403);
+            this.panelProf.TabIndex = 1;
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.BackColor = System.Drawing.Color.White;
+            this.panelLeft.Controls.Add(this.button2);
+            this.panelLeft.Controls.Add(this.buttonMyProfil);
+            this.panelLeft.Controls.Add(this.panel19);
+            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(191, 403);
+            this.panelLeft.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(133)))));
+            this.button2.Location = new System.Drawing.Point(0, 115);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 34);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Поиск по id";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // buttonMyProfil
+            // 
+            this.buttonMyProfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.buttonMyProfil.FlatAppearance.BorderSize = 0;
+            this.buttonMyProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyProfil.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMyProfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(133)))));
+            this.buttonMyProfil.Location = new System.Drawing.Point(3, 78);
+            this.buttonMyProfil.Name = "buttonMyProfil";
+            this.buttonMyProfil.Size = new System.Drawing.Size(189, 34);
+            this.buttonMyProfil.TabIndex = 2;
+            this.buttonMyProfil.Text = "Моя страница";
+            this.buttonMyProfil.UseVisualStyleBackColor = false;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel19.Location = new System.Drawing.Point(189, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(2, 403);
+            this.panel19.TabIndex = 95;
+            // 
             // panelAth
             // 
             this.panelAth.Controls.Add(this.pictureBox1);
             this.panelAth.Controls.Add(this.label2);
             this.panelAth.Controls.Add(this.label3);
             this.panelAth.Controls.Add(this.panelWelcome);
+            this.panelAth.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelAth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAth.Location = new System.Drawing.Point(0, 0);
             this.panelAth.Name = "panelAth";
@@ -150,7 +226,6 @@
             // 
             // panelWelcome
             // 
-            this.panelWelcome.Controls.Add(this.label6);
             this.panelWelcome.Controls.Add(this.label5);
             this.panelWelcome.Controls.Add(this.label4);
             this.panelWelcome.Controls.Add(this.buttonAth);
@@ -216,20 +291,12 @@
             this.textBoxUser.Size = new System.Drawing.Size(199, 23);
             this.textBoxUser.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(70, 268);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "label6";
-            // 
             // Form_main
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(692, 436);
             this.Controls.Add(this.panelContent);
@@ -245,6 +312,8 @@
             this.panel_borderMove.ResumeLayout(false);
             this.panel_borderMove.PerformLayout();
             this.panelContent.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
+            this.panelLeft.ResumeLayout(false);
             this.panelAth.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelWelcome.ResumeLayout(false);
@@ -269,7 +338,12 @@
         private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonCloseApp;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelProf;
+        private System.Windows.Forms.Panel panelLeft;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonMyProfil;
     }
 }
 

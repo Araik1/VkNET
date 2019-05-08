@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using VkNet.Enums.Filters;
+using VkNet.Exception;
 using VkNet.Model;
 
 namespace VkNet
@@ -14,12 +15,19 @@ namespace VkNet
 
         private VkApi api;
         private ulong IDApp;
+        private ApiAuthParams auth;
+        private Settings scope;
+
+
 
         public Form_main()
         {
             InitializeComponent();
             api = new VkApi();
-            IDApp = 6972061;
+            IDApp = 6975168;
+            scope = Settings.All;
+            auth = new ApiAuthParams();
+
         }
 
         private bool isLogedVk(string login, string password)
@@ -29,38 +37,35 @@ namespace VkNet
 
             try
             {
-                try
-                {
-                    api.Authorize(new ApiAuthParams
-                    {
-                        ApplicationId = IDApp,
-                        Login = login,
-                        Password = password,
-                        Settings = Settings.Messages,
-                        TwoFactorAuthorization = () =>
-                        {
-                            using (TwoFactorAuthForm authForm = new TwoFactorAuthForm())
-                            {
-                                authForm.ShowDialog();
-                                return authForm.codeAuth;
-                            }
-                        }
-                    });
-                }
-                catch (System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка");
-                    return false;
-                }
+                auth.ApplicationId = IDApp;
+                auth.Password = password;
+                auth.Login = login;
+                auth.Settings = scope;
+
+                api.Authorize(auth);
+
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
-                MessageBox.Show(ex.Message, "Ошибка");
-                return false;
+                auth.TwoFactorAuthorization = () =>
+                {
+                    using (TwoFactorAuthForm authForm = new TwoFactorAuthForm())
+                    {
+                        authForm.ShowDialog();
+                        return authForm.codeAuth;
+                    }
+                };
+                api.Authorize(auth);
+
             }
+            /*catch (CaptchaNeededException exc)
+            {
+               Обработка капчи при авторизации 
+            }*/
 
             return true;
         }
+
         private void buttonAth_Click(object sender, EventArgs e)
         {
             userName = textBoxUser.Text.ToString();
@@ -68,22 +73,9 @@ namespace VkNet
 
             if (isLogedVk(userName, password))
             {
-                api.Messages.Send(new Model.RequestParams.MessagesSendParams
-                {
-                    RandomId = 12365,
-                    ChatId = 153211133,
-                    Message = "message"
-                });
+                Console.WriteLine(api.Token);
+
             }
-
-            /*Console.WriteLine(api.Token);
-
-            // Отправка сообщения себе
-            api.Messages.Send(new VkNet.Model.RequestParams.MessagesSendParams
-            {
-                ChatId = api.UserId.Value,
-                Message = "message"
-            });*/
 
         }
 

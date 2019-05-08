@@ -243,3 +243,4 @@ C:\Study projects\GitHub\VkNET\AppVkNET\AppVkNET\obj\Debug\AppVkNET.csproj.CopyC
 C:\Study projects\GitHub\VkNET\AppVkNET\AppVkNET\obj\Debug\AppVkNET.exe
 C:\Study projects\GitHub\VkNET\AppVkNET\AppVkNET\obj\Debug\AppVkNET.pdb
 C:\Study projects\GitHub\VkNET\AppVkNET\AppVkNET\obj\Debug\AppVkNET.TwoFactorAuthForm.resources
+C:\Study projects\GitHub\VkNET\AppVkNET\AppVkNET\obj\Debug\AppVkNET.CaptchaInput.resources

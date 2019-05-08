@@ -11,7 +11,8 @@ namespace AppVkNET
             InitializeComponent();
             
         }
-        public string codeAuth => textBoxPas.Text;
+
+        public string codeAuth => textBoxPas.Text.ToString();
 
         private void buttonAth_Click(object sender, EventArgs e)
         {
@@ -22,8 +23,9 @@ namespace AppVkNET
             }
             this.Hide();
         }
-
+        
         //===================Перемещение окна==============================
+
         private System.Drawing.Point mouseOffset;
         private bool isMouseDown = false;
 
@@ -55,6 +57,7 @@ namespace AppVkNET
         {
             this.Close();
         }
+
         //=================================================================  
     }
 }
